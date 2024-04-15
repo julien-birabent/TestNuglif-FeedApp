@@ -30,6 +30,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+}
+
+ext{
+    koin_android_version = '3.5.3'
 }
 
 dependencies {
@@ -49,4 +54,7 @@ dependencies {
 
     // Picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
+
+    // Koin
+    implementation "io.insert-koin:koin-android:$koin_android_version"
 }
