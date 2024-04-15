@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="lapresse.nuglif.ui.fragment.FeedFragment"
+        android:label="FeedFragment" />
+
+    <fragment
+        android:id="@+id/articleDetailsFragment"
+        android:name="lapresse.nuglif.ui.fragment.ArticleDetailsFragment"
+        android:label="ArticleDetailsFragment">
+
+        <action
+            android:id="@+id/action_articleDetailsFragment_to_filterPreferenceFragment"
+            app:destination="@id/filterPreferenceFragment" />
+
+        <action
+            android:id="@+id/action_articleDetailsFragment_to_feedFragment"
+            app:destination="@id/feedFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/filterPreferenceFragment"
+        android:name="lapresse.nuglif.ui.fragment.FilterPreferenceFragment"
+        android:label="FilterPreferenceFragment" />
+
+</navigation>
