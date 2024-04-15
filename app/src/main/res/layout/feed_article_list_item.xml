@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/FeedCardStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/articleItemImage"
+            tools:src="@drawable/_504369_premier_ministre_canada_justin_trudeau"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            style="@style/ArticleCardImage" />
+
+        <TextView
+            android:id="@+id/articleItemChannelName"
+            style="@style/ArticleCardChannelName"
+            app:layout_constraintBottom_toTopOf="@id/articleItemTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            tools:text="Politique canadienne" />
+
+        <TextView
+            android:id="@+id/articleItemTitle"
+            style="@style/ArticleCardTitle"
+            app:layout_constraintBottom_toTopOf="@id/articleItemPublicationDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Trudeau promet des «centaines de millions» pour le tramway de Québec" />
+
+        <TextView
+            android:id="@+id/articleItemPublicationDate"
+            style="@style/ArticleCardPublicationDate"
+            app:drawableStartCompat="@drawable/ic_time"
+            app:layout_constraintBottom_toBottomOf="@id/articleItemImage"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="14 Avril 2024" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
