@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Nuglif Test</string>
+    <string name="action_sort">Trier</string>
+    <string name="yourPosition">Votre position: %1$s / %2$s </string>
+    <string name="error_locationNotSupported">Erreur, votre emplacement n&#8217;est pas supportée</string>
+</resources>
