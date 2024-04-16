@@ -1,18 +1,19 @@
 package lapresse.nuglif.domain
 
 import lapresse.nuglif.data.model.ArticleModel
-import lapresse.nuglif.ui.item.ArticleFeedListItem
+import lapresse.nuglif.ui.item.Article
 
 object ArticleModelMapper {
 
-    fun map(articles: List<ArticleModel>): List<ArticleFeedListItem> = articles.map { article ->
+    fun map(articles: List<ArticleModel>): List<Article> = articles.map { article ->
         with(article) {
-            ArticleFeedListItem(
+            Article(
                 channelName,
                 title,
                 lead,
                 photoUrl = visual.first().urlPattern,
-                publicationDate
+                publicationDate,
+                id
             )
         }
     }

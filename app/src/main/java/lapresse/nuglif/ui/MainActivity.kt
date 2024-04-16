@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
         confusingRandomLogger.startLogging()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
-
+*/
     override fun onDestroy() {
         confusingRandomLogger.stopLogging()
         super.onDestroy()

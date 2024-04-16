@@ -1,14 +1,18 @@
 package lapresse.nuglif.ui.fragment
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
 import lapresse.nuglif.R
+import lapresse.nuglif.extensions.hideNavigateUpButton
 import lapresse.nuglif.extensions.initRecyclerView
 import lapresse.nuglif.extensions.showActionBar
 import lapresse.nuglif.ui.ArticleFeedViewModel
@@ -27,13 +31,21 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
 
         setHasOptionsMenu(true)
         showActionBar()
+        hideNavigateUpButton()
 
-        adapter = ArticleAdapter(mutableListOf())
+        adapter = ArticleAdapter(mutableListOf(), ::openArticleDetails)
         view.findViewById<RecyclerView>(R.id.articleFeedRecyclerView).initRecyclerView(adapter)
 
         viewModel.articles.observe(viewLifecycleOwner) { newArticles ->
             adapter.updateList(newArticles)
         }
+    }
+
+    private fun openArticleDetails(articleId: String) {
+        findNavController().navigate(
+            R.id.action_feedFragment_to_articleDetailsFragment,
+            bundleOf(ArticleDetailsFragment.ARG_ARTICLE_ID to articleId)
+        )
     }
 
     private fun showSortingMenu(anchor: View, onOptionClicked: (Int) -> Unit) {
@@ -47,25 +59,31 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
         popupMenu.show()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_main, menu)
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_sort -> {
-                val menuItemView  = requireActivity().findViewById<View>(item.itemId)
+                val menuItemView = requireActivity().findViewById<View>(item.itemId)
                 showSortingMenu(menuItemView) { optionClicked ->
                     viewModel.sortFeedBy(mapMenuIdToOption(optionClicked))
                 }
                 true
             }
+
             R.id.action_filter_by_channel -> {
                 findNavController().navigate(R.id.action_feedFragment_to_filterPreferenceFragment)
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }
 
-    private fun mapMenuIdToOption(menuItemId: Int) : FeedSortOptions {
-        return when(menuItemId){
+    private fun mapMenuIdToOption(menuItemId: Int): FeedSortOptions {
+        return when (menuItemId) {
             R.id.sort_by_channel -> FeedSortOptions.BY_CHANNEL
             else -> FeedSortOptions.BY_PUBLICATION_DATE
         }

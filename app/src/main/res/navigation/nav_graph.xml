@@ -7,23 +7,28 @@
     <fragment
         android:id="@+id/feedFragment"
         android:name="lapresse.nuglif.ui.fragment.FeedFragment"
-        android:label="FeedFragment" >
+        android:label="FeedFragment">
         <action
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim"
             android:id="@+id/action_feedFragment_to_articleDetailsFragment"
-            app:destination="@id/articleDetailsFragment" />
+            app:destination="@id/articleDetailsFragment">
+        </action>
         <action
+            android:id="@+id/action_feedFragment_to_filterPreferenceFragment"
+            app:destination="@id/filterPreferenceFragment"
             app:enterAnim="@anim/slide_in_up"
             app:exitAnim="@anim/slide_out_bottom"
             app:popEnterAnim="@anim/slide_in_up"
-            app:popExitAnim="@anim/slide_out_bottom"
-            android:id="@+id/action_feedFragment_to_filterPreferenceFragment"
-            app:destination="@id/filterPreferenceFragment" />
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment
         android:id="@+id/articleDetailsFragment"
         android:name="lapresse.nuglif.ui.fragment.ArticleDetailsFragment"
-        android:label="ArticleDetailsFragment"/>
+        android:label="ArticleDetailsFragment" />
 
     <fragment
         android:id="@+id/filterPreferenceFragment"

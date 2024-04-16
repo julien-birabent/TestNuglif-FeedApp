@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import lapresse.nuglif.R
+import lapresse.nuglif.extensions.displayNavigateUpButton
 import lapresse.nuglif.extensions.hideActionBar
 import lapresse.nuglif.extensions.initRecyclerView
 import lapresse.nuglif.ui.ArticleFeedViewModel
@@ -24,10 +25,10 @@ class FilterPreferenceFragment : Fragment(R.layout.fragment_filter_preference) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        hideActionBar()
+        setHasOptionsMenu(true)
         handleBackPressed()
-        handleCloseButtonClicked()
         handleHomeButtonClicked()
+        displayNavigateUpButton()
 
         adapter = ChannelPreferenceAdapter(mutableListOf(), ::onChannelItemClicked)
         view.findViewById<RecyclerView>(R.id.filterPreferenceRecyclerview)
@@ -41,12 +42,6 @@ class FilterPreferenceFragment : Fragment(R.layout.fragment_filter_preference) {
 
     private fun handleBackPressed() {
         requireActivity().onBackPressedDispatcher.addCallback {
-            closePage()
-        }
-    }
-
-    private fun handleCloseButtonClicked() {
-        view?.findViewById<ImageView>(R.id.filterPreferenceCloseButton)?.setOnClickListener {
             closePage()
         }
     }
@@ -70,7 +65,7 @@ class FilterPreferenceFragment : Fragment(R.layout.fragment_filter_preference) {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                requireActivity().onBackPressedDispatcher.onBackPressed()
+                findNavController().popBackStack()
                 return true
             }
         }

@@ -5,9 +5,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import lapresse.nuglif.R
+import lapresse.nuglif.extensions.toDisplayFormat
 import lapresse.nuglif.ui.adapter.base.SimpleDataAdapter
 import lapresse.nuglif.ui.adapter.base.ViewHolder
-import lapresse.nuglif.ui.item.ArticleFeedListItem
+import lapresse.nuglif.ui.item.Article
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
@@ -20,21 +21,18 @@ class ArticleViewHolder(view: View) : ViewHolder(view) {
     val publicationDate: TextView = view.findViewById(R.id.articleItemPublicationDate)
 }
 
-class ArticleAdapter(itemList: MutableList<ArticleFeedListItem>) :
-    SimpleDataAdapter<ArticleFeedListItem, ArticleViewHolder>(itemList, R.layout.feed_article_list_item) {
-
-    private val dateFormat: SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+class ArticleAdapter(itemList: MutableList<Article>, private val onArticleClicked : (String) -> Unit) :
+    SimpleDataAdapter<Article, ArticleViewHolder>(itemList, R.layout.feed_article_list_item) {
 
     override fun createViewHolder(view: View): ArticleViewHolder = ArticleViewHolder(view)
 
-    override fun bindItemToViewHolder(item: ArticleFeedListItem, viewHolder: ArticleViewHolder) {
+    override fun bindItemToViewHolder(item: Article, viewHolder: ArticleViewHolder) {
         viewHolder.apply {
             Glide.with(viewHolder.itemView.context).load(item.photoUrl).into(image)
             channelName.text = item.channelName
             title.text = item.title
-            publicationDate.text = dateFormat.parse(item.publicationDate)?.let { date ->
-                DateFormat.getDateInstance(DateFormat.FULL).format(date)
-            }
+            publicationDate.text = item.publicationDate.toDisplayFormat()
+            viewHolder.view.setOnClickListener { onArticleClicked(item.id) }
         }
     }
 }

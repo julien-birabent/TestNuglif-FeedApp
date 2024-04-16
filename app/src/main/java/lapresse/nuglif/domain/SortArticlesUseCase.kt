@@ -2,13 +2,12 @@ package lapresse.nuglif.domain
 
 import io.reactivex.rxjava3.core.Flowable
 import lapresse.nuglif.ui.FeedSortOptions
-import lapresse.nuglif.ui.item.ArticleFeedListItem
-import org.koin.core.component.KoinComponent
+import lapresse.nuglif.ui.item.Article
 
 class SortArticlesUseCase :
-    AsyncUseCase<Pair<List<ArticleFeedListItem>, FeedSortOptions>, List<ArticleFeedListItem>>() {
+    AsyncUseCase<Pair<List<Article>, FeedSortOptions>, List<Article>>() {
 
-    override fun execute(params: Pair<List<ArticleFeedListItem>, FeedSortOptions>): Flowable<List<ArticleFeedListItem>> {
+    override fun execute(params: Pair<List<Article>, FeedSortOptions>): Flowable<List<Article>> {
         return Flowable.just(params).map { (unsortedArticles, sortingOption) ->
             when (sortingOption) {
                 FeedSortOptions.BY_CHANNEL -> unsortedArticles.sortedBy { it.channelName }
