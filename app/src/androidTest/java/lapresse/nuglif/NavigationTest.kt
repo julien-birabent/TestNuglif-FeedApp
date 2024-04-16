@@ -16,7 +16,6 @@ import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import lapresse.nuglif.ui.MainActivity
 import lapresse.nuglif.ui.adapter.article.ArticleViewHolder
-import lapresse.nuglif.ui.adapter.channel.ChannelPreferenceAdapter
 import lapresse.nuglif.ui.adapter.channel.ChannelPreferenceViewHolder
 import org.junit.Rule
 import org.junit.runner.RunWith
@@ -30,7 +29,18 @@ class NavigationTest {
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun theAppNavigatesWithNoCrashes() {
+    fun testArticleSortingMenu() {
+        onView(withText(getString(R.string.fragment_feed_title))).check(matches(isDisplayed()))
+
+        onView(withId(R.id.action_sort)).perform(click())
+        onView(withText(getString(R.string.sort_by_date))).inRoot(RootMatchers.isPlatformPopup()).perform(click())
+
+        onView(withId(R.id.action_sort)).perform(click())
+        onView(withText(getString(R.string.sort_by_channel))).inRoot(RootMatchers.isPlatformPopup()).perform(click())
+    }
+
+    @Test
+    fun navigateToDetailsAndBack(){
         onView(withText(getString(R.string.fragment_feed_title))).check(matches(isDisplayed()))
 
         onView(withId(R.id.articleFeedRecyclerView)).perform(ScrollToBottomAction())
@@ -41,18 +51,29 @@ class NavigationTest {
         onView(withText(getString(R.string.fragment_article_details))).check(matches(isDisplayed()))
 
         Espresso.pressBack()
+        onView(withText(getString(R.string.fragment_feed_title))).check(matches(isDisplayed()))
+    }
 
-        onView(withId(R.id.action_sort)).perform(click())
-        onView(withText(getString(R.string.sort_by_date))).inRoot(RootMatchers.isPlatformPopup()).perform(click())
+    @Test
+    fun navigateToChannelPreferenceAndBack() {
+        onView(withText(getString(R.string.fragment_feed_title))).check(matches(isDisplayed()))
 
+        // Use the Home button
         onView(withId(R.id.action_filter_by_channel)).perform(click())
-        onView(withText(getString(R.string.sort_by_channel))).inRoot(RootMatchers.isPlatformPopup()).perform(click())
+        onView(withId(R.id.filterPreferenceHomeButton)).perform(click())
+        onView(withText(getString(R.string.fragment_feed_title))).check(matches(isDisplayed()))
 
+        // Click on the first channel item in the list
         onView(withId(R.id.action_filter_by_channel)).perform(click())
-        /*onView(withId(R.id.filterPreferenceRecyclerview))
+        onView(withId(R.id.filterPreferenceRecyclerview))
             .perform(RecyclerViewActions
-                .actionOnItemAtPosition<ChannelPreferenceViewHolder>(0, clickItemWithId(R.id.filterPreferenceItemRoot)))*/
+                .actionOnItemAtPosition<ChannelPreferenceViewHolder>(0, click()))
+        onView(withText(getString(R.string.fragment_feed_title))).check(matches(isDisplayed()))
 
+        // Click on the back button
+        onView(withId(R.id.action_filter_by_channel)).perform(click())
+        Espresso.pressBack()
+        onView(withText(getString(R.string.fragment_feed_title))).check(matches(isDisplayed()))
     }
 
     private fun getString(id: Int): String {

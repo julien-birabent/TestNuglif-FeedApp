@@ -57,7 +57,7 @@ class ChannelPreferenceFragment : Fragment(R.layout.fragment_filter_preference) 
     }
 
     private fun handleHomeButtonClicked(){
-        view?.findViewById<View>(R.id.filterPreferenceHome)?.setOnClickListener {
+        view?.findViewById<View>(R.id.filterPreferenceHomeButton)?.setOnClickListener {
             viewModel.filterSelectionByChannelName("")
             closePage()
         }
