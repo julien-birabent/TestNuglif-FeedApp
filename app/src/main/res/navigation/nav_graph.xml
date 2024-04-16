@@ -7,21 +7,23 @@
     <fragment
         android:id="@+id/feedFragment"
         android:name="lapresse.nuglif.ui.fragment.FeedFragment"
-        android:label="FeedFragment" />
+        android:label="FeedFragment" >
+        <action
+            android:id="@+id/action_feedFragment_to_articleDetailsFragment"
+            app:destination="@id/articleDetailsFragment" />
+        <action
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_up"
+            app:popExitAnim="@anim/slide_out_bottom"
+            android:id="@+id/action_feedFragment_to_filterPreferenceFragment"
+            app:destination="@id/filterPreferenceFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/articleDetailsFragment"
         android:name="lapresse.nuglif.ui.fragment.ArticleDetailsFragment"
-        android:label="ArticleDetailsFragment">
-
-        <action
-            android:id="@+id/action_articleDetailsFragment_to_filterPreferenceFragment"
-            app:destination="@id/filterPreferenceFragment" />
-
-        <action
-            android:id="@+id/action_articleDetailsFragment_to_feedFragment"
-            app:destination="@id/feedFragment" />
-    </fragment>
+        android:label="ArticleDetailsFragment"/>
 
     <fragment
         android:id="@+id/filterPreferenceFragment"

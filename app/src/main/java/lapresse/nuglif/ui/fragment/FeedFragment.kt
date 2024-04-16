@@ -5,13 +5,16 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
 import lapresse.nuglif.R
+import lapresse.nuglif.extensions.initRecyclerView
+import lapresse.nuglif.extensions.showActionBar
 import lapresse.nuglif.ui.ArticleFeedViewModel
 import lapresse.nuglif.ui.FeedSortOptions
 import lapresse.nuglif.ui.LayoutManagerFactory
-import lapresse.nuglif.ui.adapter.ArticleAdapter
+import lapresse.nuglif.ui.adapter.article.ArticleAdapter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class FeedFragment : Fragment(R.layout.fragment_feed) {
@@ -23,22 +26,13 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
         super.onViewCreated(view, savedInstanceState)
 
         setHasOptionsMenu(true)
+        showActionBar()
 
         adapter = ArticleAdapter(mutableListOf())
-        initRecyclerView(adapter)
+        view.findViewById<RecyclerView>(R.id.articleFeedRecyclerView).initRecyclerView(adapter)
 
         viewModel.articles.observe(viewLifecycleOwner) { newArticles ->
             adapter.updateList(newArticles)
-            view.findViewById<RecyclerView>(R.id.articleFeedRecyclerView).scrollToPosition(0)
-        }
-    }
-
-    private fun initRecyclerView(adapter: ArticleAdapter) {
-        view?.findViewById<RecyclerView>(R.id.articleFeedRecyclerView)?.apply {
-            setHasFixedSize(false)
-            layoutManager = LayoutManagerFactory.createLinearLayoutManager(this, RecyclerView.VERTICAL)
-            itemAnimator = DefaultItemAnimator()
-            this.adapter = adapter
         }
     }
 
@@ -63,7 +57,7 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
                 true
             }
             R.id.action_filter_by_channel -> {
-
+                findNavController().navigate(R.id.action_feedFragment_to_filterPreferenceFragment)
                 true
             }
             else -> super.onOptionsItemSelected(item)

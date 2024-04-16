@@ -12,6 +12,6 @@ class GetArticleByChannelUseCase : AsyncUseCase<String, List<ArticleFeedListItem
 
     override fun execute(params: String): Flowable<List<ArticleFeedListItem>> =
         getFeedListItemsUseCase.execute(Unit).map {
-            it.filter { article -> article.channelName == params }
+            if(params.isEmpty()) it else it.filter { article -> article.channelName == params }
         }
 }

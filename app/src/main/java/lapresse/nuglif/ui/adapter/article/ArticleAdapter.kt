@@ -1,14 +1,15 @@
-package lapresse.nuglif.ui.adapter
+package lapresse.nuglif.ui.adapter.article
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import lapresse.nuglif.R
+import lapresse.nuglif.ui.adapter.base.SimpleDataAdapter
+import lapresse.nuglif.ui.adapter.base.ViewHolder
 import lapresse.nuglif.ui.item.ArticleFeedListItem
 import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
 import java.util.Locale
 
 

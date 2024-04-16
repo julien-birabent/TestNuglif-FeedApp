@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?android:attr/selectableItemBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/filterPreferenceItemColoredCard"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardBackgroundColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="24dp"
+        android:layout_height="24dp"/>
+
+    <TextView
+        android:id="@+id/filterPreferenceItemText"
+        android:layout_width="0dp"
+        android:textSize="14sp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textAlignment="textStart"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/filterPreferenceItemColoredCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/filterPreferenceItemColoredCard"
+        app:layout_constraintTop_toTopOf="@+id/filterPreferenceItemColoredCard" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

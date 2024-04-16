@@ -1,4 +1,4 @@
-package lapresse.nuglif.ui.adapter
+package lapresse.nuglif.ui.adapter.base
 
 import android.view.LayoutInflater
 import android.view.View
@@ -46,4 +46,4 @@ abstract class SimpleDataAdapter <T, VH: ViewHolder> (private val itemList : Mut
     protected abstract fun createViewHolder(view: View) : VH
 }
 
-open class ViewHolder(protected val view: View) : RecyclerView.ViewHolder(view)
+open class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)

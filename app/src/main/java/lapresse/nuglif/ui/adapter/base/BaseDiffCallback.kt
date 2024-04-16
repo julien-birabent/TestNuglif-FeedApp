@@ -1,4 +1,4 @@
-package lapresse.nuglif.ui.adapter
+package lapresse.nuglif.ui.adapter.base
 
 import androidx.recyclerview.widget.DiffUtil
 

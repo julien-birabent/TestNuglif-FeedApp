@@ -6,8 +6,7 @@ import lapresse.nuglif.ui.item.ArticleFeedListItem
 import org.koin.core.component.KoinComponent
 
 class SortArticlesUseCase :
-    AsyncUseCase<Pair<List<ArticleFeedListItem>, FeedSortOptions>, List<ArticleFeedListItem>>(),
-    KoinComponent {
+    AsyncUseCase<Pair<List<ArticleFeedListItem>, FeedSortOptions>, List<ArticleFeedListItem>>() {
 
     override fun execute(params: Pair<List<ArticleFeedListItem>, FeedSortOptions>): Flowable<List<ArticleFeedListItem>> {
         return Flowable.just(params).map { (unsortedArticles, sortingOption) ->

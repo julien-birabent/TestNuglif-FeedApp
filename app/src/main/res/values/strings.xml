@@ -6,4 +6,7 @@
     <string name="sort_by_channel">Catégories</string>
     <string name="yourPosition">Votre position: %1$s / %2$s </string>
     <string name="error_locationNotSupported">Erreur, votre emplacement n&#8217;est pas supportée</string>
+
+    <string name="preference_filter_title">Catégories principales</string>
+    <string name="filter_preference_home">Acceuil</string>
 </resources>
