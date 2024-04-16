@@ -11,7 +11,7 @@ import lapresse.nuglif.domain.GetArticleByChannelUseCase
 import lapresse.nuglif.domain.GetAllArticlesUseCase
 import lapresse.nuglif.thread.AppSchedulerProvider
 import lapresse.nuglif.thread.SchedulerProvider
-import lapresse.nuglif.ui.ArticleFeedViewModel
+import lapresse.nuglif.ui.viewmodel.ArticleFeedViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

@@ -14,7 +14,6 @@ import org.junit.Test
 import org.koin.core.context.GlobalContext.startKoin
 import org.koin.core.context.GlobalContext.stopKoin
 import org.koin.test.KoinTest
-import kotlin.test.assertTrue
 
 class ArticleUseCaseTest : KoinTest {
 

@@ -13,8 +13,8 @@ import lapresse.nuglif.app.ResultState
 import lapresse.nuglif.extensions.actionBarTitle
 import lapresse.nuglif.extensions.displayNavigateUpButton
 import lapresse.nuglif.extensions.toDisplayFormat
-import lapresse.nuglif.ui.ArticleFeedViewModel
-import lapresse.nuglif.ui.item.Article
+import lapresse.nuglif.ui.viewmodel.ArticleFeedViewModel
+import lapresse.nuglif.ui.model.Article
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 

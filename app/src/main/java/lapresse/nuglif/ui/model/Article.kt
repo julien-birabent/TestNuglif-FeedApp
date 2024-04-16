@@ -1,4 +1,4 @@
-package lapresse.nuglif.ui.item
+package lapresse.nuglif.ui.model
 
 class Article(
     var channelName: String,

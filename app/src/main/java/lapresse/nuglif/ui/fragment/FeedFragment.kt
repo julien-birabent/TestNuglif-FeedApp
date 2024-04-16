@@ -9,16 +9,14 @@ import android.widget.PopupMenu
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
 import lapresse.nuglif.R
 import lapresse.nuglif.extensions.actionBarTitle
 import lapresse.nuglif.extensions.hideNavigateUpButton
 import lapresse.nuglif.extensions.initRecyclerView
 import lapresse.nuglif.extensions.showActionBar
-import lapresse.nuglif.ui.ArticleFeedViewModel
+import lapresse.nuglif.ui.viewmodel.ArticleFeedViewModel
 import lapresse.nuglif.ui.FeedSortOptions
-import lapresse.nuglif.ui.LayoutManagerFactory
 import lapresse.nuglif.ui.adapter.article.ArticleAdapter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 

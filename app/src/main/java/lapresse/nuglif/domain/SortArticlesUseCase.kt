@@ -2,7 +2,7 @@ package lapresse.nuglif.domain
 
 import io.reactivex.rxjava3.core.Flowable
 import lapresse.nuglif.ui.FeedSortOptions
-import lapresse.nuglif.ui.item.Article
+import lapresse.nuglif.ui.model.Article
 
 class SortArticlesUseCase :
     AsyncUseCase<Pair<List<Article>, FeedSortOptions>, List<Article>>() {

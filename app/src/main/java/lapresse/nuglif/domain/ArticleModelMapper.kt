@@ -1,7 +1,7 @@
 package lapresse.nuglif.domain
 
 import lapresse.nuglif.data.model.ArticleModel
-import lapresse.nuglif.ui.item.Article
+import lapresse.nuglif.ui.model.Article
 
 object ArticleModelMapper {
 

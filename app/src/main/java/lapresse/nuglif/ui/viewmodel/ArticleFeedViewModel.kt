@@ -1,4 +1,4 @@
-package lapresse.nuglif.ui
+package lapresse.nuglif.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +11,8 @@ import lapresse.nuglif.app.preferences.AppPreferences
 import lapresse.nuglif.domain.GetAllArticlesUseCase
 import lapresse.nuglif.domain.GetArticleByChannelUseCase
 import lapresse.nuglif.domain.SortArticlesUseCase
-import lapresse.nuglif.ui.item.Article
+import lapresse.nuglif.ui.FeedSortOptions
+import lapresse.nuglif.ui.model.Article
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 

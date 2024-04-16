@@ -8,10 +8,7 @@ import lapresse.nuglif.R
 import lapresse.nuglif.extensions.toDisplayFormat
 import lapresse.nuglif.ui.adapter.base.SimpleDataAdapter
 import lapresse.nuglif.ui.adapter.base.ViewHolder
-import lapresse.nuglif.ui.item.Article
-import java.text.DateFormat
-import java.text.SimpleDateFormat
-import java.util.Locale
+import lapresse.nuglif.ui.model.Article
 
 
 class ArticleViewHolder(view: View) : ViewHolder(view) {

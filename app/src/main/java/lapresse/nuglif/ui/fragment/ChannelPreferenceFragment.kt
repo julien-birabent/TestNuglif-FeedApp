@@ -11,7 +11,7 @@ import lapresse.nuglif.R
 import lapresse.nuglif.extensions.actionBarTitle
 import lapresse.nuglif.extensions.displayNavigateUpButton
 import lapresse.nuglif.extensions.initRecyclerView
-import lapresse.nuglif.ui.ArticleFeedViewModel
+import lapresse.nuglif.ui.viewmodel.ArticleFeedViewModel
 import lapresse.nuglif.ui.adapter.channel.ChannelPreferenceAdapter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
