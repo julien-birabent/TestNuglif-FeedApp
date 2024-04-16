@@ -18,7 +18,3 @@ fun Fragment.actionBarTitle(title: String) {
 fun Fragment.showActionBar() {
     (activity as AppCompatActivity).supportActionBar?.show()
 }
-
-fun Fragment.hideActionBar() {
-    (activity as AppCompatActivity).supportActionBar?.hide()
-}

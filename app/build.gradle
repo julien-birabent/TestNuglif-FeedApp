@@ -59,6 +59,7 @@ dependencies {
 
     // Koin
     implementation "io.insert-koin:koin-android:$koin_android_version"
+    implementation "io.insert-koin:koin-android-test:$koin_android_version"
 
     // Rx Kotlin
     implementation "io.reactivex.rxjava3:rxkotlin:$rx_kotlin_version"
@@ -71,5 +72,11 @@ dependencies {
 
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+
+    //test
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'androidx.test:core:1.5.0'
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
+    testImplementation 'io.mockk:mockk:1.11.0'
 
 }
