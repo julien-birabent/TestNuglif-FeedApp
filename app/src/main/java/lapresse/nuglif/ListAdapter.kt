@@ -24,7 +24,7 @@ class ListAdapter(private val list: List<ArticleDO>, private val context: Contex
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
 
         val textView: TextView = if (convertView == null) {
-            LayoutInflater.from(context).inflate(R.layout.list_item, parent, false) as TextView
+            LayoutInflater.from(context).inflate(R.layout.feed_article_list_item, parent, false) as TextView
         } else {
             convertView as TextView
         }
