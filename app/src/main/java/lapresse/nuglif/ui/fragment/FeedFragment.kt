@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.RecyclerView
 import lapresse.nuglif.R
+import lapresse.nuglif.extensions.actionBarTitle
 import lapresse.nuglif.extensions.hideNavigateUpButton
 import lapresse.nuglif.extensions.initRecyclerView
 import lapresse.nuglif.extensions.showActionBar
@@ -32,6 +33,7 @@ class FeedFragment : Fragment(R.layout.fragment_feed) {
         setHasOptionsMenu(true)
         showActionBar()
         hideNavigateUpButton()
+        actionBarTitle(getString(R.string.fragment_feed_title))
 
         adapter = ArticleAdapter(mutableListOf(), ::openArticleDetails)
         view.findViewById<RecyclerView>(R.id.articleFeedRecyclerView).initRecyclerView(adapter)

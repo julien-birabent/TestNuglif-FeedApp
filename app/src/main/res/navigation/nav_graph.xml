@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/filterPreferenceFragment"
-        android:name="lapresse.nuglif.ui.fragment.FilterPreferenceFragment"
+        android:name="lapresse.nuglif.ui.fragment.ChannelPreferenceFragment"
         android:label="FilterPreferenceFragment" />
 
 </navigation>

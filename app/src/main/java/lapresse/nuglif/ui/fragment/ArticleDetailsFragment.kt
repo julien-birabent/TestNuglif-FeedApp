@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import lapresse.nuglif.R
 import lapresse.nuglif.app.ResultState
+import lapresse.nuglif.extensions.actionBarTitle
 import lapresse.nuglif.extensions.displayNavigateUpButton
 import lapresse.nuglif.extensions.toDisplayFormat
 import lapresse.nuglif.ui.ArticleFeedViewModel
@@ -31,6 +32,7 @@ class ArticleDetailsFragment : Fragment(R.layout.fragment_article_details) {
         setHasOptionsMenu(true)
         handleBackPressed()
         displayNavigateUpButton()
+        actionBarTitle(getString(R.string.fragment_article_details))
 
         arguments?.getString(ARG_ARTICLE_ID)?.let {
             viewModel.getArticleById(it).observe(viewLifecycleOwner) { results ->

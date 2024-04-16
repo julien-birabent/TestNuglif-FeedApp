@@ -3,21 +3,20 @@ package lapresse.nuglif.ui.fragment
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import lapresse.nuglif.R
+import lapresse.nuglif.extensions.actionBarTitle
 import lapresse.nuglif.extensions.displayNavigateUpButton
-import lapresse.nuglif.extensions.hideActionBar
 import lapresse.nuglif.extensions.initRecyclerView
 import lapresse.nuglif.ui.ArticleFeedViewModel
 import lapresse.nuglif.ui.adapter.channel.ChannelPreferenceAdapter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
-class FilterPreferenceFragment : Fragment(R.layout.fragment_filter_preference) {
+class ChannelPreferenceFragment : Fragment(R.layout.fragment_filter_preference) {
 
     private val viewModel: ArticleFeedViewModel by sharedViewModel<ArticleFeedViewModel>()
     private lateinit var adapter: ChannelPreferenceAdapter
@@ -26,9 +25,11 @@ class FilterPreferenceFragment : Fragment(R.layout.fragment_filter_preference) {
         super.onViewCreated(view, savedInstanceState)
 
         setHasOptionsMenu(true)
+        displayNavigateUpButton()
+        actionBarTitle(getString(R.string.fragment_channel_preference))
+
         handleBackPressed()
         handleHomeButtonClicked()
-        displayNavigateUpButton()
 
         adapter = ChannelPreferenceAdapter(mutableListOf(), ::onChannelItemClicked)
         view.findViewById<RecyclerView>(R.id.filterPreferenceRecyclerview)
