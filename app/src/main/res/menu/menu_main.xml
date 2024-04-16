@@ -3,8 +3,14 @@
 
     <item
         android:id="@+id/action_sort"
-        android:icon="@drawable/icn_filtres_blanc"
+        android:icon="@drawable/ic_sort"
         android:title="@string/action_sort"
-        app:showAsAction="always"/>
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_filter_by_channel"
+        android:icon="@drawable/ic_filter"
+        android:title="action_filter"
+        app:showAsAction="always" />
 
 </menu>

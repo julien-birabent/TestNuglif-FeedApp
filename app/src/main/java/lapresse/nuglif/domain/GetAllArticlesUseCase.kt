@@ -10,7 +10,7 @@ class GetAllArticlesUseCase : AsyncUseCase<Any?, List<ArticleFeedListItem>>(), K
 
     private val articleRepository: ArticleRepository by inject()
 
-    override fun build(params: Any?): Flowable<List<ArticleFeedListItem>> =
+    override fun execute(params: Any?): Flowable<List<ArticleFeedListItem>> =
         articleRepository.getAllArticles()
             .map { ArticleModelMapper.map(it)}
             .subscribeOn(schedulerProvider.io())

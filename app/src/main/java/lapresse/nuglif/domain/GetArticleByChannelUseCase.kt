@@ -10,8 +10,8 @@ class GetArticleByChannelUseCase : AsyncUseCase<String, List<ArticleFeedListItem
 
     private val getFeedListItemsUseCase: GetAllArticlesUseCase by inject()
 
-    override fun build(params: String): Flowable<List<ArticleFeedListItem>> =
-        getFeedListItemsUseCase.build(Unit).map {
+    override fun execute(params: String): Flowable<List<ArticleFeedListItem>> =
+        getFeedListItemsUseCase.execute(Unit).map {
             it.filter { article -> article.channelName == params }
         }
 }

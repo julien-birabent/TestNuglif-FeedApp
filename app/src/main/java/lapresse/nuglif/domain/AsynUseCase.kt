@@ -9,8 +9,6 @@ abstract class AsyncUseCase<in Params, Results : Any>(): KoinComponent {
 
     protected val schedulerProvider: SchedulerProvider by inject()
 
-    abstract fun build(params: Params): Flowable<Results>
-
-    fun execute(params: Params): Flowable<Results> = build(params)
+    abstract fun execute(params: Params): Flowable<Results>
 
 }
