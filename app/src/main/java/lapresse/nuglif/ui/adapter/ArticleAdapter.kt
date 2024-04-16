@@ -6,6 +6,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import lapresse.nuglif.R
 import lapresse.nuglif.ui.item.ArticleFeedListItem
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 
 class ArticleViewHolder(view: View) : ViewHolder(view) {
@@ -18,16 +19,18 @@ class ArticleViewHolder(view: View) : ViewHolder(view) {
 class ArticleAdapter(itemList: MutableList<ArticleFeedListItem>) :
     SimpleDataAdapter<ArticleFeedListItem, ArticleViewHolder>(itemList, R.layout.feed_article_list_item) {
 
-    private var dateFormat: SimpleDateFormat = SimpleDateFormat("dd-MM-yyyy")
+    var dateFormat: SimpleDateFormat = SimpleDateFormat("dd-MM-yyyy")
 
     override fun createViewHolder(view: View): ArticleViewHolder = ArticleViewHolder(view)
 
     override fun bindItemToViewHolder(item: ArticleFeedListItem, viewHolder: ArticleViewHolder) {
         viewHolder.apply {
-            Glide.with(image).load(item.photoUrl).into(image)
+            Glide.with(viewHolder.itemView.context).load(item.photoUrl).into(image)
             channelName.text = item.channelName
             title.text = item.title
-            publicationDate.text = dateFormat.parse(item.publicationDate)?.toString() ?: ""
+            publicationDate.text = dateFormat.parse(item.publicationDate)?.let { date ->
+                DateFormat.getDateInstance(DateFormat.FULL).format(date)
+            }
         }
     }
 }
