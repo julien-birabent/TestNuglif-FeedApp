@@ -1,5 +1,8 @@
 package lapresse.nuglif.di
 
+import android.content.Context
+import android.content.SharedPreferences
+import lapresse.nuglif.app.preferences.AppPreferences
 import lapresse.nuglif.data.model.ArticleModel
 import lapresse.nuglif.data.source.ArticleModelJsonDataSource
 import lapresse.nuglif.data.ArticleRepository
@@ -16,13 +19,14 @@ import org.koin.dsl.module
 val mainModule = module {
 
     single<SchedulerProvider> { AppSchedulerProvider() }
+    single<SharedPreferences> { androidContext().getSharedPreferences("private_shared_preferences", Context.MODE_PRIVATE)}
+    single { AppPreferences(get()) }
 
     single<DataSource<ArticleModel>> { ArticleModelJsonDataSource(androidContext()) }
     single { ArticleRepository(get()) }
-    single { ArticleFeedViewModel() }
 
     single { GetArticleByChannelUseCase() }
     single { GetAllArticlesUseCase() }
 
-    viewModel { ArticleFeedViewModel() }
+    viewModel { ArticleFeedViewModel(get()) }
 }
