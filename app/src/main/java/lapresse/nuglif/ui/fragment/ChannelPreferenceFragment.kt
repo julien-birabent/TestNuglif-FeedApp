@@ -32,7 +32,7 @@ class ChannelPreferenceFragment : Fragment(R.layout.fragment_filter_preference) 
         handleHomeButtonClicked()
 
         adapter = ChannelPreferenceAdapter(mutableListOf(), ::onChannelItemClicked)
-        view.findViewById<RecyclerView>(R.id.filterPreferenceRecyclerview)
+        view.findViewById<RecyclerView>(R.id.channelPreferenceRecyclerview)
             .initRecyclerView(adapter, R.drawable.item_decoration_divider_line)
 
         viewModel.allChannels.observe(viewLifecycleOwner) { channels ->
@@ -57,7 +57,7 @@ class ChannelPreferenceFragment : Fragment(R.layout.fragment_filter_preference) 
     }
 
     private fun handleHomeButtonClicked(){
-        view?.findViewById<View>(R.id.filterPreferenceHomeButton)?.setOnClickListener {
+        view?.findViewById<View>(R.id.channelPreferenceHomeButton)?.setOnClickListener {
             viewModel.filterSelectionByChannelName("")
             closePage()
         }

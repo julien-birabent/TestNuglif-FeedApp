@@ -1,14 +1,14 @@
 package lapresse.nuglif
 
 import io.reactivex.rxjava3.core.Flowable
-import lapresse.nuglif.data.model.ArticleModel
-import lapresse.nuglif.data.model.Visual
+import lapresse.nuglif.data.model.ArticleDTO
+import lapresse.nuglif.data.model.VisualDTO
 import lapresse.nuglif.data.source.DataSource
 
-object ArticleTestDataSource : DataSource<ArticleModel> {
+object ArticleTestDataSource : DataSource<ArticleDTO> {
 
     val testArticlesOrdered = listOf(
-        ArticleModel(
+        ArticleDTO(
             "channel1",
             "no use",
             "no use",
@@ -19,9 +19,9 @@ object ArticleTestDataSource : DataSource<ArticleModel> {
             "no use",
             "no use",
             "no use",
-            listOf(Visual("","",""))
+            listOf(VisualDTO("","",""))
         ),
-        ArticleModel(
+        ArticleDTO(
             "channel2",
             "no use",
             "no use",
@@ -32,9 +32,9 @@ object ArticleTestDataSource : DataSource<ArticleModel> {
             "no use",
             "no use",
             "no use",
-            listOf(Visual("","",""))
+            listOf(VisualDTO("","",""))
         ),
-        ArticleModel(
+        ArticleDTO(
             "channel3",
             "no use",
             "no use",
@@ -45,9 +45,9 @@ object ArticleTestDataSource : DataSource<ArticleModel> {
             "no use",
             "no use",
             "no use",
-            listOf(Visual("","",""))
+            listOf(VisualDTO("","",""))
         )
     )
 
-    override fun fetchData(): Flowable<List<ArticleModel>> = Flowable.just(testArticlesOrdered)
+    override fun fetchData(): Flowable<List<ArticleDTO>> = Flowable.just(testArticlesOrdered)
 }

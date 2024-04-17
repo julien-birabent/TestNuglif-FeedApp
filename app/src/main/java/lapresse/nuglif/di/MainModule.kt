@@ -3,7 +3,7 @@ package lapresse.nuglif.di
 import android.content.Context
 import android.content.SharedPreferences
 import lapresse.nuglif.app.preferences.AppPreferences
-import lapresse.nuglif.data.model.ArticleModel
+import lapresse.nuglif.data.model.ArticleDTO
 import lapresse.nuglif.data.source.ArticleModelJsonDataSource
 import lapresse.nuglif.data.ArticleRepository
 import lapresse.nuglif.data.source.DataSource
@@ -22,7 +22,7 @@ val mainModule = module {
     single<SharedPreferences> { androidContext().getSharedPreferences("private_shared_preferences", Context.MODE_PRIVATE)}
     single { AppPreferences(get()) }
 
-    single<DataSource<ArticleModel>> { ArticleModelJsonDataSource(androidContext()) }
+    single<DataSource<ArticleDTO>> { ArticleModelJsonDataSource(androidContext()) }
     single { ArticleRepository(get()) }
 
     single { GetArticleByChannelUseCase() }

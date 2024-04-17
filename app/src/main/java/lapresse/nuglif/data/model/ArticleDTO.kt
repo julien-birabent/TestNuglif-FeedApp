@@ -1,6 +1,6 @@
 package lapresse.nuglif.data.model
 
-data class ArticleModel(
+data class ArticleDTO(
     val channelName: String,
     val className: String,
     val dataUrl: String,
@@ -11,5 +11,5 @@ data class ArticleModel(
     val sharedId: String,
     val title: String,
     val type: String,
-    val visual: List<Visual>
+    val visual: List<VisualDTO>
 )

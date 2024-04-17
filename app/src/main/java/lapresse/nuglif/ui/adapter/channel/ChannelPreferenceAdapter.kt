@@ -9,12 +9,12 @@ import lapresse.nuglif.ui.adapter.base.SimpleDataAdapter
 import lapresse.nuglif.ui.adapter.base.ViewHolder
 
 class ChannelPreferenceViewHolder(view: View) : ViewHolder(view) {
-    val coloredCard: MaterialCardView = view.findViewById(R.id.filterPreferenceItemColoredCard)
-    val channelName: TextView = view.findViewById(R.id.filterPreferenceItemText)
+    val coloredCard: MaterialCardView = view.findViewById(R.id.channelPreferenceItemColoredCard)
+    val channelName: TextView = view.findViewById(R.id.channelPreferenceItemText)
 }
 
 class ChannelPreferenceAdapter (itemList: MutableList<String>, private val onItemClicked : (String) -> Unit) :
-    SimpleDataAdapter<String, ChannelPreferenceViewHolder>(itemList, R.layout.filter_preference_list_item)  {
+    SimpleDataAdapter<String, ChannelPreferenceViewHolder>(itemList, R.layout.channel_preference_list_item)  {
 
     override fun bindItemToViewHolder(item: String, viewHolder: ChannelPreferenceViewHolder) {
         viewHolder.apply {

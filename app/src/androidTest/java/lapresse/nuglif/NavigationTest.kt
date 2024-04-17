@@ -43,10 +43,9 @@ class NavigationTest {
     fun navigateToDetailsAndBack(){
         onView(withText(getString(R.string.fragment_feed_title))).check(matches(isDisplayed()))
 
-        onView(withId(R.id.articleFeedRecyclerView)).perform(ScrollToBottomAction())
         onView(withId(R.id.articleFeedRecyclerView))
             .perform(RecyclerViewActions
-                .actionOnItemAtPosition<ArticleViewHolder>(0, clickItemWithId(R.id.articleItemRoot)))
+                .actionOnItemAtPosition<ArticleViewHolder>(0, click()))
 
         onView(withText(getString(R.string.fragment_article_details))).check(matches(isDisplayed()))
 
@@ -60,12 +59,12 @@ class NavigationTest {
 
         // Use the Home button
         onView(withId(R.id.action_filter_by_channel)).perform(click())
-        onView(withId(R.id.filterPreferenceHomeButton)).perform(click())
+        onView(withId(R.id.channelPreferenceHomeButton)).perform(click())
         onView(withText(getString(R.string.fragment_feed_title))).check(matches(isDisplayed()))
 
         // Click on the first channel item in the list
         onView(withId(R.id.action_filter_by_channel)).perform(click())
-        onView(withId(R.id.filterPreferenceRecyclerview))
+        onView(withId(R.id.channelPreferenceRecyclerview))
             .perform(RecyclerViewActions
                 .actionOnItemAtPosition<ChannelPreferenceViewHolder>(0, click()))
         onView(withText(getString(R.string.fragment_feed_title))).check(matches(isDisplayed()))
