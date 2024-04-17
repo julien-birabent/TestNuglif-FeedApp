@@ -1,6 +1,5 @@
 package lapresse.nuglif
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import lapresse.nuglif.domain.ArticleModelMapper
 import lapresse.nuglif.domain.GetAllArticlesUseCase
 import lapresse.nuglif.domain.GetArticleByChannelUseCase
@@ -9,7 +8,6 @@ import lapresse.nuglif.ui.FeedSortOptions
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.koin.core.context.GlobalContext.startKoin
 import org.koin.core.context.GlobalContext.stopKoin
@@ -17,14 +15,17 @@ import org.koin.test.KoinTest
 
 class ArticleUseCaseTest : KoinTest {
 
-    @get:Rule
-    val rule = InstantTaskExecutorRule()
 
     @Before
     fun before() {
         startKoin {
             modules(testModule)
         }
+    }
+
+    @After
+    fun after() {
+        stopKoin()
     }
 
     @Test
@@ -137,10 +138,4 @@ class ArticleUseCaseTest : KoinTest {
             true
         }
     }
-
-    @After
-    fun after() {
-        stopKoin()
-    }
-
 }
