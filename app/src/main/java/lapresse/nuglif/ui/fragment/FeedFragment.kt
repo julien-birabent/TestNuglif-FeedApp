@@ -15,9 +15,9 @@ import lapresse.nuglif.extensions.actionBarTitle
 import lapresse.nuglif.extensions.hideNavigateUpButton
 import lapresse.nuglif.extensions.initRecyclerView
 import lapresse.nuglif.extensions.showActionBar
-import lapresse.nuglif.ui.viewmodel.ArticleFeedViewModel
 import lapresse.nuglif.ui.FeedSortOptions
 import lapresse.nuglif.ui.adapter.article.ArticleAdapter
+import lapresse.nuglif.ui.viewmodel.ArticleFeedViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class FeedFragment : Fragment(R.layout.fragment_feed) {

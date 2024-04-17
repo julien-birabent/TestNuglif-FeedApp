@@ -3,12 +3,12 @@ package lapresse.nuglif.di
 import android.content.Context
 import android.content.SharedPreferences
 import lapresse.nuglif.app.preferences.AppPreferences
+import lapresse.nuglif.data.ArticleRepository
 import lapresse.nuglif.data.model.ArticleDTO
 import lapresse.nuglif.data.source.ArticleModelJsonDataSource
-import lapresse.nuglif.data.ArticleRepository
 import lapresse.nuglif.data.source.DataSource
-import lapresse.nuglif.domain.GetArticleByChannelUseCase
 import lapresse.nuglif.domain.GetAllArticlesUseCase
+import lapresse.nuglif.domain.GetArticleByChannelUseCase
 import lapresse.nuglif.thread.AppSchedulerProvider
 import lapresse.nuglif.thread.SchedulerProvider
 import lapresse.nuglif.ui.viewmodel.ArticleFeedViewModel
